@@ -14,8 +14,16 @@ def authenticate(username, password, pwdb):
         else:
             print('Wrong password!')
     else:
-        print('User not known!')
+        add_user(username, password, pwdb)
     return auth
+
+def add_user(username, password, pwdb):
+    response = input("Do you want to create a new user? [y/n] ")
+    if response == "y":
+        pwdb[username] = password
+        write_pwdb(pwdb)
+    else:
+        print("User not added")
 
 def write_pwdb(pwdb):
     with open('pwdb.json', 'wt') as pwdb_file:
