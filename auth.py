@@ -1,6 +1,7 @@
 import json
 
 def get_credentials():
+    """Get username and password from standard input"""
     username = input('Type username: ')
     password = input('Type password: ')
     return username, password
