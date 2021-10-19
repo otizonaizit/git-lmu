@@ -1,3 +1,5 @@
+import json
+
 def get_credentials():
     username = input('Type username: ')
     password = input('Type password: ')
@@ -15,8 +17,17 @@ def authenticate(username, password, pwdb):
         print('User not known!')
     return auth
 
-pwdb = {'tiziano' : 'abc123',
-        'pamela' : 'qwerty'}
+def write_pwdb(pwdb):
+    with open('pwdb.json', 'wt') as pwdb_file:
+        json.dump(pwdb, pwdb_file)
+    print('Pwdb written!')
+
+def read_pwdb():
+    with open('pwdb.json', 'rt') as pwdb_file:
+        pwdb = json.load(pwdb_file)
+    return pwdb
+
 username, password = get_credentials()
+pwdb = read_pwdb()
 authenticate(username, password, pwdb)
 
