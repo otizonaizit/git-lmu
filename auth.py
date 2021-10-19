@@ -19,6 +19,7 @@ def authenticate(username, password, pwdb):
     return auth
 
 def add_user(username, password, pwdb):
+    """Add user to the password database"""
     response = input("Do you want to create a new user? [y/n] ")
     if response == "y":
         pwdb[username] = password
