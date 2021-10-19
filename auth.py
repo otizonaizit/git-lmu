@@ -26,6 +26,7 @@ def add_user(username, password, pwdb):
         print("User not added")
 
 def write_pwdb(pwdb):
+    """Writes password database to disc."""
     with open('pwdb.json', 'wt') as pwdb_file:
         json.dump(pwdb, pwdb_file)
     print('Pwdb written!')
